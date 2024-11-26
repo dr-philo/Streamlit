@@ -11,7 +11,7 @@ from helper_functions import (
     create_xyz_string,
 )
 
-st.title("Structural Modification of Molecules")
+st.title("Modification of Molecules")
 
 # File upload in the main area
 uploaded_file = st.file_uploader("Upload XYZ File", type="xyz")
