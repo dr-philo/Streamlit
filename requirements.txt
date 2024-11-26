@@ -1,0 +1,9 @@
+streamlit
+numpy
+pandas
+matplotlib
+ipywidgets
+py3Dmol
+stmol
+ipython_genutils
+ipyspeck
