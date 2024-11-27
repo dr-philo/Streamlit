@@ -36,14 +36,9 @@ def replace_atom_with_group(
     nearest_neighbor_coords = atomic_coordinates[nearest_neighbor_index]
 
     # Calculate the bond vector
-    #bond_vector = removed_atom_coords - nearest_neighbor_coords
-    #bond_vector /= np.linalg.norm(bond_vector)
     bond_vector = removed_atom_coords - nearest_neighbor_coords
-bond_vector /= np.linalg.norm(bond_vector)  # Normalize bond vector
-# Ensure bond_length is standard for the type of atoms being linked
-if bond_length < 0.6 or bond_length > 2.0:  # Typical covalent bond range
-    bond_length = 1.5  # Default fallback value
-new_coords = nearest_neighbor_coords + (i + 1) * bond_length * bond_vector
+    bond_vector /= np.linalg.norm(bond_vector)
+
 
     # Add new group atoms
     for i, new_atom in enumerate(new_group):
