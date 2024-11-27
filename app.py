@@ -29,27 +29,18 @@ if uploaded_file is not None:
     view.setStyle({"stick": {"radius": 0.15}, "sphere": {"radius": 0.2}})
 
     # Add labels to atoms
-    #for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
-    #    view.addLabel(
-     #       f"{i+1}",
-      #      {
-       #         "position": {"x": coords[0], "y": coords[1], "z": coords[2]},
-        #        "fontSize": 14,
-         #       "fontColor": "black",
-          #      "backgroundOpacity": 0.2,
-           # },
-#        )
+    for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
+        view.addLabel(
+            f"{i+1}",
+            {
+                "position": {"x": coords[0], "y": coords[1], "z": coords[2]},
+                "fontSize": 14,
+                "fontColor": "black",
+                 "backgroundOpacity": 0.2,
+             },
+        )
 # Add labels to atoms
-for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
-    view.addLabel(
-        symbol,  # Display the chemical symbol
-        {
-            "position": {"x": coords[0], "y": coords[1], "z": coords[2]},
-            "fontSize": 14,
-            "fontColor": "black",
-            "backgroundOpacity": 0.2,
-        },
-    )
+
     view.zoomTo()
     showmol(view, height=400, width=800)
 
