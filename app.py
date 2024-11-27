@@ -27,6 +27,8 @@ if uploaded_file is not None:
     view = py3Dmol.view(width=800, height=400)
     view.addModel(xyz_string, "xyz")
     view.setStyle({"stick": {"radius": 0.12, 'bondlength': 1.5}, "sphere": {"radius": 0.4}})
+    view.addControl({'rotate': True})
+
 
     # Add labels to atoms
     for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
@@ -39,7 +41,6 @@ if uploaded_file is not None:
                  "backgroundOpacity": 0.2,
              },
         )
-# Add labels to atoms
 
     view.zoomTo()
     showmol(view, height=400, width=800)
@@ -163,6 +164,9 @@ if uploaded_file is not None:
         view = py3Dmol.view(width=800, height=400)
         view.addModel(xyz_string, "xyz")
         view.setStyle({"stick": {"radius": 0.12, 'bondlength': 1.5}, "sphere": {"radius": 0.4}})
+        view.addControl({'rotate': True})
+
+    
 
         # Add labels to atoms
         for i, (symbol, coords) in enumerate(
