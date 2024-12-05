@@ -23,10 +23,27 @@ if uploaded_file is not None:
     # Display original structure with annotations
     st.subheader("Original Molecule Structure")
     xyz_string = create_xyz_string(atomic_symbols, atomic_coordinates)
+    # After creating xyz_string but before rendering the molecule
+bond_list, bond_orders = infer_bonds(atomic_symbols, atomic_coordinates)
 
-    view = py3Dmol.view(width=800, height=400)
-    view.addModel(xyz_string, "xyz")
-    view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
+view = py3Dmol.view(width=800, height=400)
+view.addModel(xyz_string, "xyz")
+view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
+
+# Add bond information with inferred bond orders
+for (atom1, atom2), bond_order in zip(bond_list, bond_orders):
+    if bond_order == 2:  # Double bond
+        view.addStyle(
+            {"bonds": [atom1, atom2]},
+            {"stick": {"radius": 0.12, "color": "purple", "dash": 0.5}},  # Adjust double bond style
+        )
+view.zoomTo()
+showmol(view, height=400, width=800)
+
+
+    #view = py3Dmol.view(width=800, height=400)
+    #view.addModel(xyz_string, "xyz")
+    #view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
 
 
     # Add labels to atoms
