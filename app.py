@@ -39,6 +39,8 @@ for (atom1, atom2), bond_order in zip(bond_list, bond_orders):
         )
 view.zoomTo()
 showmol(view, height=400, width=800)
+# Sidebar for modification controls
+    st.sidebar.header("Modification Controls")
 
 
     #view = py3Dmol.view(width=800, height=400)
@@ -61,8 +63,6 @@ for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
    # view.zoomTo()
    # showmol(view, height=400, width=800)
 
-    # Sidebar for modification controls
-    st.sidebar.header("Modification Controls")
 
     # Expanded list of functional groups
     groups = {
