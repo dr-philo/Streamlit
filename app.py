@@ -97,10 +97,9 @@ groups = {
             "Phosphate (-PO4)": ["P", "O", "O", "O", "O"],
         },
     }
-
-    modifications = []
-    add_another = True
-    modification_count = 0
+modifications = []
+add_another = True
+modification_count = 0
 
     while add_another:
         st.sidebar.subheader(f"Modification {modification_count + 1}")
