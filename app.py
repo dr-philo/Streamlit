@@ -40,7 +40,7 @@ for (atom1, atom2), bond_order in zip(bond_list, bond_orders):
 view.zoomTo()
 showmol(view, height=400, width=800)
 # Sidebar for modification controls
-    st.sidebar.header("Modification Controls")
+st.sidebar.header("Modification Controls")
 
 
     #view = py3Dmol.view(width=800, height=400)
