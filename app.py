@@ -143,8 +143,7 @@ while add_another:
             "Add another modification", key=f"add_{modification_count}"
         )
         modification_count += 1
-
-    if st.sidebar.button("Perform Modifications"):
+if st.sidebar.button("Perform Modifications"):
         # Perform modifications
         new_atomic_symbols = atomic_symbols.copy()
         new_atomic_coordinates = atomic_coordinates.copy()
