@@ -101,7 +101,7 @@ modifications = []
 add_another = True
 modification_count = 0
 
-    while add_another:
+while add_another:
         st.sidebar.subheader(f"Modification {modification_count + 1}")
 
         # Choose modification type
