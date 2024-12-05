@@ -65,7 +65,7 @@ for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
 
 
     # Expanded list of functional groups
-    groups = {
+groups = {
         "Alkyl Groups": {
             "Methyl (-CH3)": ["C", "H", "H", "H"],
             "Ethyl (-CH2CH3)": ["C", "H", "H", "C", "H", "H", "H"],
