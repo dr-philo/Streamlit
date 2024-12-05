@@ -5,10 +5,7 @@ import io
 import numpy as np
 
 def pairwise_distances(coords):
-    """
-    Calculate pairwise Euclidean distances between points.
-    Replaces scipy.spatial.distance.pdist and squareform.
-    """
+   
     n = len(coords)
     distances = np.zeros((n, n))
     for i in range(n):
