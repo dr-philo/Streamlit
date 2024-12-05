@@ -47,7 +47,7 @@ showmol(view, height=400, width=800)
 
 
     # Add labels to atoms
- for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
+for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
         view.addLabel(
             f"{i+1}",
             {
