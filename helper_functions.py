@@ -24,6 +24,9 @@ def read_xyz(file):
         [line.split()[1:4] for line in lines], dtype=np.float64
     )
     return atomic_symbols, atomic_coordinates
+# Replace `pdist` and `squareform` in `infer_bonds` with:
+distances = pairwise_distances(atomic_coordinates)
+
 
 
 def write_xyz(atomic_symbols, atomic_coordinates):
