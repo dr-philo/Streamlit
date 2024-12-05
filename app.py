@@ -58,8 +58,8 @@ for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
              },
         )
 
-    view.zoomTo()
-    showmol(view, height=400, width=800)
+   # view.zoomTo()
+   # showmol(view, height=400, width=800)
 
     # Sidebar for modification controls
     st.sidebar.header("Modification Controls")
