@@ -1,7 +1,23 @@
 # helper_functions.py
 import numpy as np
 import io
-from scipy.spatial.distance import pdist, squareform
+#from scipy.spatial.distance import pdist, squareform
+import numpy as np
+
+def pairwise_distances(coords):
+    """
+    Calculate pairwise Euclidean distances between points.
+    Replaces scipy.spatial.distance.pdist and squareform.
+    """
+    n = len(coords)
+    distances = np.zeros((n, n))
+    for i in range(n):
+        for j in range(n):
+            distances[i, j] = np.linalg.norm(coords[i] - coords[j])
+    return distances
+# Replace `pdist` and `squareform` in `infer_bonds` with:
+distances = pairwise_distances(atomic_coordinates)
+
 
 def read_xyz(file):
     content = file.getvalue().decode("utf-8").splitlines()
