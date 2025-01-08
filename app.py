@@ -47,7 +47,7 @@ view.setStyle(get_bond_order_style(atomic_symbols, atomic_coordinates))
     #view.addModel(xyz_string, "xyz")
     #view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
     # Add labels to atoms
-    for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
+for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
         view.addLabel(
             f"{i+1}",
             {
