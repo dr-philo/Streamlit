@@ -194,7 +194,7 @@ view = py3Dmol.view(width=800, height=400)
 view.addModel(xyz_string, "xyz")
 view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
 view.zoomTo()
-    showmol(view, height=400, width=800)
+showmol(view, height=400, width=800)
 
         # Add labels to atoms
 
@@ -202,7 +202,7 @@ view.zoomTo()
    
 
         # Generate modified XYZ file for download
-    modified_xyz = write_xyz(new_atomic_symbols, new_atomic_coordinates)
+modified_xyz = write_xyz(new_atomic_symbols, new_atomic_coordinates)
         st.download_button(
             label="Download Modified XYZ File",
             data=modified_xyz,
