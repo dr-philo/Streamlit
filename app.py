@@ -176,13 +176,7 @@ if st.sidebar.button("Perform Modifications"):
         # Display modified structure with annotations
         st.subheader("Modified Molecule Structure")
         xyz_string = create_xyz_string(new_atomic_symbols, new_atomic_coordinates)
-
-        view = py3Dmol.view(width=800, height=400)
-        view.addModel(xyz_string, "xyz")
-        view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
-
-        # Add labels to atoms
-for i, (symbol, coords) in enumerate(
+    for i, (symbol, coords) in enumerate(
             zip(new_atomic_symbols, new_atomic_coordinates)
         ):
             view.addLabel(
@@ -195,8 +189,16 @@ for i, (symbol, coords) in enumerate(
                 },
             )
 
-    view.zoomTo()
+        view = py3Dmol.view(width=800, height=400)
+        view.addModel(xyz_string, "xyz")
+        view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
+ view.zoomTo()
     showmol(view, height=400, width=800)
+
+        # Add labels to atoms
+
+
+   
 
         # Generate modified XYZ file for download
     modified_xyz = write_xyz(new_atomic_symbols, new_atomic_coordinates)
