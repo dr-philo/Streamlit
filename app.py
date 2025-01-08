@@ -65,7 +65,7 @@ showmol(view, height=400, width=800)
 st.sidebar.header("Modification Controls")
 
     # Expanded list of functional groups
-    groups = {
+groups = {
         "Alkyl Groups": {
             "Methyl (-CH3)": ["C", "H", "H", "H"],
             "Ethyl (-CH2CH3)": ["C", "H", "H", "C", "H", "H", "H"],
