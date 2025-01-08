@@ -62,7 +62,7 @@ view.zoomTo()
 showmol(view, height=400, width=800)
 
     # Sidebar for modification controls
-    st.sidebar.header("Modification Controls")
+st.sidebar.header("Modification Controls")
 
     # Expanded list of functional groups
     groups = {
