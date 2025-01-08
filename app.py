@@ -102,7 +102,7 @@ modifications = []
 add_another = True
 modification_count = 0
 
-    while add_another:
+while add_another:
         st.sidebar.subheader(f"Modification {modification_count + 1}")
 
         # Choose modification type
@@ -182,7 +182,7 @@ modification_count = 0
         view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
 
         # Add labels to atoms
-        for i, (symbol, coords) in enumerate(
+    for i, (symbol, coords) in enumerate(
             zip(new_atomic_symbols, new_atomic_coordinates)
         ):
             view.addLabel(
@@ -195,11 +195,11 @@ modification_count = 0
                 },
             )
 
-        view.zoomTo()
-        showmol(view, height=400, width=800)
+    view.zoomTo()
+    showmol(view, height=400, width=800)
 
         # Generate modified XYZ file for download
-        modified_xyz = write_xyz(new_atomic_symbols, new_atomic_coordinates)
+    modified_xyz = write_xyz(new_atomic_symbols, new_atomic_coordinates)
         st.download_button(
             label="Download Modified XYZ File",
             data=modified_xyz,
