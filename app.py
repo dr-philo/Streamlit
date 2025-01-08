@@ -190,10 +190,10 @@ for i, (symbol, coords) in enumerate(
                 },
             )
 
-        view = py3Dmol.view(width=800, height=400)
-        view.addModel(xyz_string, "xyz")
-        view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
- view.zoomTo()
+    view = py3Dmol.view(width=800, height=400)
+    view.addModel(xyz_string, "xyz")
+    view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
+    view.zoomTo()
     showmol(view, height=400, width=800)
 
         # Add labels to atoms
