@@ -182,7 +182,7 @@ if st.sidebar.button("Perform Modifications"):
         view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
 
         # Add labels to atoms
-    for i, (symbol, coords) in enumerate(
+for i, (symbol, coords) in enumerate(
             zip(new_atomic_symbols, new_atomic_coordinates)
         ):
             view.addLabel(
