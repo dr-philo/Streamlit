@@ -26,7 +26,7 @@ if uploaded_file is not None:
     def get_bond_order_style(atoms, coordinates):
     # This function will analyze atom distances and elemental properties 
     # to determine likely bond orders
-bond_style = {
+        bond_style = {
         "stick": {
             "radius": 0.12,
             "multipleBondSpacing": 0.15,  # Space between multiple bonds
