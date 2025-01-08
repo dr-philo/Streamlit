@@ -176,7 +176,8 @@ if st.sidebar.button("Perform Modifications"):
         # Display modified structure with annotations
         st.subheader("Modified Molecule Structure")
         xyz_string = create_xyz_string(new_atomic_symbols, new_atomic_coordinates)
-    for i, (symbol, coords) in enumerate(
+    
+for i, (symbol, coords) in enumerate(
             zip(new_atomic_symbols, new_atomic_coordinates)
         ):
             view.addLabel(
