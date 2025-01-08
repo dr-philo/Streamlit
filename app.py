@@ -23,6 +23,17 @@ if uploaded_file is not None:
     # Display original structure with annotations
     st.subheader("Original Molecule Structure")
     xyz_string = create_xyz_string(atomic_symbols, atomic_coordinates)
+    for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
+        view.addLabel(
+            f"{i+1}",
+            {
+                "position": {"x": coords[0], "y": coords[1], "z": coords[2]},
+                "fontSize": 14,
+                "fontColor": "black",
+                "backgroundOpacity": 0.2,
+            },
+        )
+    
     def get_bond_order_style(atoms, coordinates):
     # This function will analyze atom distances and elemental properties 
     # to determine likely bond orders
@@ -42,22 +53,12 @@ if uploaded_file is not None:
 view = py3Dmol.view(width=800, height=400)
 view.addModel(xyz_string, "xyz")
 view.setStyle(get_bond_order_style(atomic_symbols, atomic_coordinates))
-
+view.zoomTo()
     #view = py3Dmol.view(width=800, height=400)
     #view.addModel(xyz_string, "xyz")
     #view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
     # Add labels to atoms
-for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
-        view.addLabel(
-            f"{i+1}",
-            {
-                "position": {"x": coords[0], "y": coords[1], "z": coords[2]},
-                "fontSize": 14,
-                "fontColor": "black",
-                "backgroundOpacity": 0.2,
-            },
-        )
-    #view.zoomTo()
+
     showmol(view, height=400, width=800)
 
     # Sidebar for modification controls
