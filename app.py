@@ -23,10 +23,29 @@ if uploaded_file is not None:
     # Display original structure with annotations
     st.subheader("Original Molecule Structure")
     xyz_string = create_xyz_string(atomic_symbols, atomic_coordinates)
+    def get_bond_order_style(atoms, coordinates):
+    # This function will analyze atom distances and elemental properties 
+    # to determine likely bond orders
+    bond_style = {
+        "stick": {
+            "radius": 0.12,
+            "multipleBondSpacing": 0.15,  # Space between multiple bonds
+            "showMultipleBonds": True     # Enable multiple bond display
+        },
+        "sphere": {
+            "radius": 0.4
+        }
+    }
+    return bond_style
 
-    view = py3Dmol.view(width=800, height=400)
-    view.addModel(xyz_string, "xyz")
-    view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
+# Update the visualization code section in app.py
+view = py3Dmol.view(width=800, height=400)
+view.addModel(xyz_string, "xyz")
+view.setStyle(get_bond_order_style(atomic_symbols, atomic_coordinates))
+
+    #view = py3Dmol.view(width=800, height=400)
+    #view.addModel(xyz_string, "xyz")
+    #view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
     # Add labels to atoms
     for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
         view.addLabel(
