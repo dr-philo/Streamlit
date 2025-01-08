@@ -57,7 +57,6 @@ for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
                 "backgroundOpacity": 0.2,
             },
         )
-
     view.zoomTo()
     showmol(view, height=400, width=800)
 
