@@ -26,7 +26,7 @@ if uploaded_file is not None:
 
     view = py3Dmol.view(width=800, height=400)
     view.addModel(xyz_string, "xyz")
-   view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
+    view.setStyle({"stick": {}})
 
     # Add labels to atoms
     for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
@@ -161,7 +161,8 @@ if uploaded_file is not None:
 
         view = py3Dmol.view(width=800, height=400)
         view.addModel(xyz_string, "xyz")
-       view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
+        view.setStyle({"stick": {}})
+
         # Add labels to atoms
         for i, (symbol, coords) in enumerate(
             zip(new_atomic_symbols, new_atomic_coordinates)
