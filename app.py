@@ -59,7 +59,7 @@ view.zoomTo()
     #view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
     # Add labels to atoms
 
-    showmol(view, height=400, width=800)
+showmol(view, height=400, width=800)
 
     # Sidebar for modification controls
     st.sidebar.header("Modification Controls")
