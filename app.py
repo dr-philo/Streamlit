@@ -11,7 +11,7 @@ from helper_functions import (
     create_xyz_string,
 )
 
-st.title("Modification of Molecules")
+st.title("Structural Modification of Molecules")
 
 # File upload in the main area
 uploaded_file = st.file_uploader("Upload XYZ File", type="xyz")
@@ -23,49 +23,31 @@ if uploaded_file is not None:
     # Display original structure with annotations
     st.subheader("Original Molecule Structure")
     xyz_string = create_xyz_string(atomic_symbols, atomic_coordinates)
-    # After creating xyz_string but before rendering the molecule
-bond_list, bond_orders = infer_bonds(atomic_symbols, atomic_coordinates)
 
-view = py3Dmol.view(width=800, height=400)
-view.addModel(xyz_string, "xyz")
-view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
-
-# Add bond information with inferred bond orders
-for (atom1, atom2), bond_order in zip(bond_list, bond_orders):
-    if bond_order == 2:  # Double bond
-        view.addStyle(
-            {"bonds": [atom1, atom2]},
-            {"stick": {"radius": 0.12, "color": "purple", "dash": 0.5}},  # Adjust double bond style
-        )
-view.zoomTo()
-showmol(view, height=400, width=800)
-# Sidebar for modification controls
-st.sidebar.header("Modification Controls")
-
-
-    #view = py3Dmol.view(width=800, height=400)
-    #view.addModel(xyz_string, "xyz")
-    #view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
-
+    view = py3Dmol.view(width=800, height=400)
+    view.addModel(xyz_string, "xyz")
+   view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
 
     # Add labels to atoms
-for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
+    for i, (symbol, coords) in enumerate(zip(atomic_symbols, atomic_coordinates)):
         view.addLabel(
             f"{i+1}",
             {
                 "position": {"x": coords[0], "y": coords[1], "z": coords[2]},
                 "fontSize": 14,
                 "fontColor": "black",
-                 "backgroundOpacity": 0.2,
-             },
+                "backgroundOpacity": 0.2,
+            },
         )
 
-   # view.zoomTo()
-   # showmol(view, height=400, width=800)
+    view.zoomTo()
+    showmol(view, height=400, width=800)
 
+    # Sidebar for modification controls
+    st.sidebar.header("Modification Controls")
 
     # Expanded list of functional groups
-groups = {
+    groups = {
         "Alkyl Groups": {
             "Methyl (-CH3)": ["C", "H", "H", "H"],
             "Ethyl (-CH2CH3)": ["C", "H", "H", "C", "H", "H", "H"],
@@ -97,11 +79,12 @@ groups = {
             "Phosphate (-PO4)": ["P", "O", "O", "O", "O"],
         },
     }
-modifications = []
-add_another = True
-modification_count = 0
 
-while add_another:
+    modifications = []
+    add_another = True
+    modification_count = 0
+
+    while add_another:
         st.sidebar.subheader(f"Modification {modification_count + 1}")
 
         # Choose modification type
@@ -143,7 +126,8 @@ while add_another:
             "Add another modification", key=f"add_{modification_count}"
         )
         modification_count += 1
-if st.sidebar.button("Perform Modifications"):
+
+    if st.sidebar.button("Perform Modifications"):
         # Perform modifications
         new_atomic_symbols = atomic_symbols.copy()
         new_atomic_coordinates = atomic_coordinates.copy()
@@ -177,9 +161,7 @@ if st.sidebar.button("Perform Modifications"):
 
         view = py3Dmol.view(width=800, height=400)
         view.addModel(xyz_string, "xyz")
-        view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
-    
-
+       view.setStyle({"stick": {"radius": 0.12}, "sphere": {"radius": 0.4}})
         # Add labels to atoms
         for i, (symbol, coords) in enumerate(
             zip(new_atomic_symbols, new_atomic_coordinates)
